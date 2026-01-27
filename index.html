@@ -1,23 +1,533 @@
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <title>Home</title>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width" />
-    <!--
-      Need a visual blank slate?
-      Remove all code in `styles.css`!
-    -->
-    <link rel="stylesheet" href="styles.css" />
-    <script type="module" src="script.js"></script>
-  </head>
-  <body>
-    <nav>
-      <a href="/" aria-current="page">Home</a>
-      <a href="/page2.html">Other page</a>
-    </nav>
+
+ <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "Service",
+        "serviceType": "창원 인테리어 및 리모델링 추천",
+        "provider": {
+          "@type": "Organization",
+          "name": "창원 인테리어 컨설팅 센터",
+          "url": "https://changwon-interior-example.com"
+        },
+        "areaServed": {
+          "@type": "AdministrativeArea",
+          "name": "경상남도 창원시",
+          "hasMap": "https://www.google.com/maps/place/창원시"
+        },
+        "description": "2026년 최신 트렌드를 반영한 창원시 전 지역 맞춤형 인테리어 서비스와 합리적인 비용 견적 정보를 제공합니다. 창원 아파트, 주택 리모델링에 특화된 전문가를 추천해 드립니다.",
+        "hasOfferCatalog": {
+          "@type": "OfferCatalog",
+          "name": "창원 인테리어 패키지 견적",
+          "itemListElement": [
+            {
+              "@type": "Offer",
+              "itemOffered": {
+                "@type": "Product",
+                "name": "창원 인테리어 베이직 패키지"
+              },
+              "description": "부분 인테리어 또는 최소 비용으로 진행하는 실속형 패키지",
+              "priceSpecification": {
+                "@type": "PriceSpecification",
+                "price": "500000",
+                "priceCurrency": "KRW",
+                "unitText": "평당",
+                "description": "평당 50만원대부터 시작"
+              }
+            },
+            {
+              "@type": "Offer",
+              "itemOffered": {
+                "@type": "Product",
+                "name": "창원 인테리어 스탠다드 패키지"
+              },
+              "description": "가장 많이 선택하는 전체 리모델링 표준 패키지",
+              "priceSpecification": {
+                "@type": "PriceSpecification",
+                "price": "1000000",
+                "priceCurrency": "KRW",
+                "unitText": "평당",
+                "description": "평당 100만원대부터 시작"
+              }
+            },
+            {
+              "@type": "Offer",
+              "itemOffered": {
+                "@type": "Product",
+                "name": "창원 인테리어 프리미엄 패키지"
+              },
+              "description": "고급 자재와 맞춤 디자인이 적용된 럭셔리 패키지",
+              "priceSpecification": {
+                "@type": "PriceSpecification",
+                "price": "1500000",
+                "priceCurrency": "KRW",
+                "unitText": "평당",
+                "description": "평당 150만원대부터 시작"
+              }
+            }
+          ]
+        }
+      }
+    </script>
+    <style>
+        body {
+            font-family: 'Noto Sans KR', sans-serif;
+            margin: 0;
+            padding: 0;
+            line-height: 1.8;
+            background-color: #f7f9fc;
+            color: #333;
+            font-size: 16px;
+        }
+        header {
+            background-color: #004d99;
+            color: white;
+            padding: 2rem 1rem;
+            text-align: center;
+        }
+        header h1 {
+            font-size: 2.5rem;
+            margin: 0;
+            font-weight: 700;
+        }
+        nav {
+            margin-top: 1rem;
+        }
+        nav ul {
+            list-style: none;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 1.5rem;
+            margin-top: 0.5rem;
+        }
+        nav a {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 1.1rem;
+            transition: color 0.3s ease;
+            padding: 0.5rem 1rem;
+            border-radius: 5px;
+        }
+        nav a:hover {
+            color: #ffcc00;
+            background-color: rgba(255, 255, 255, 0.1);
+        }
+        main {
+            max-width: 1000px;
+            margin: 2.5rem auto;
+            padding: 0 1.5rem;
+            background-color: white;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+            border-radius: 12px;
+        }
+        section {
+            padding: 2rem 0;
+            border-bottom: 1px solid #eee;
+        }
+        section:last-child {
+            border-bottom: none;
+        }
+        h2 {
+            font-size: 2rem;
+            color: #004d99;
+            margin-bottom: 1rem;
+            border-left: 5px solid #ff6600;
+            padding-left: 1rem;
+            font-weight: 600;
+        }
+        h3 {
+            font-size: 1.5rem;
+            color: #0056b3;
+            margin-top: 1.5rem;
+            border-bottom: 2px solid #f0f0f0;
+            padding-bottom: 0.5rem;
+            font-weight: 500;
+        }
+        p {
+            margin-bottom: 1rem;
+            line-height: 1.8;
+        }
+        ul, ol {
+            margin-bottom: 1rem;
+            padding-left: 20px;
+        }
+        li {
+            margin-bottom: 0.5rem;
+            line-height: 1.6;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 2rem;
+            font-size: 0.95rem;
+        }
+        th, td {
+            padding: 1rem;
+            border: 1px solid #e0e0e0;
+            text-align: left;
+        }
+        th {
+            background-color: #f0f5f9;
+            color: #333;
+            font-weight: 600;
+            text-align: center;
+        }
+        tr:nth-child(even) {
+            background-color: #fafafa;
+        }
+        .cta-button {
+            display: inline-block;
+            background-color: #ff6600;
+            color: white;
+            font-weight: 700;
+            padding: 1rem 2rem;
+            border-radius: 50px;
+            text-decoration: none;
+            margin: 1.5rem 0;
+            transition: background-color 0.3s ease, transform 0.3s ease;
+            text-align: center;
+            font-size: 1.1rem;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+        }
+        .cta-button:hover {
+            background-color: #e65c00;
+            transform: translateY(-2px);
+        }
+        .keyword-tags {
+            margin: 2rem 0;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            font-size: 0.9rem;
+        }
+        .keyword-tags a {
+            background-color: #e0f0ff;
+            color: #004d99;
+            padding: 8px 16px;
+            border-radius: 20px;
+            text-decoration: none;
+            transition: background-color 0.3s ease;
+            border: 1px solid #cce0ff;
+        }
+        .keyword-tags a:hover {
+            background-color: #cce0ff;
+        }
+        /* FAQ Accordion */
+        dl dt {
+            font-weight: 700;
+            margin-top: 1.5rem;
+            cursor: pointer;
+            color: #004d99;
+            padding: 1rem;
+            background-color: #f0f5f9;
+            border-radius: 8px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            transition: background-color 0.3s ease;
+            border-left: 5px solid #004d99;
+        }
+        dl dt:hover {
+            background-color: #e0f0ff;
+        }
+        dl dt::after {
+            content: "+";
+            font-size: 1.5rem;
+            transition: transform 0.3s ease;
+        }
+        dl dt.active::after {
+            content: "-";
+            transform: rotate(180deg);
+        }
+        dl dd {
+            margin-left: 0;
+            margin-top: 1rem;
+            padding: 1rem 1.5rem;
+            background-color: #ffffff;
+            border: 1px solid #e0e0e0;
+            border-radius: 8px;
+            line-height: 1.7;
+            display: none;
+            animation: fadeIn 0.4s ease-out;
+        }
+        dl dt.active + dd {
+            display: block;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(-10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        /* Callout Box */
+        .callout {
+            background-color: #fffacd;
+            padding: 1.5rem;
+            border-left: 5px solid #ffcc00;
+            border-radius: 8px;
+            margin: 1.5rem 0;
+        }
+        /* Form Styling */
+        form {
+            background-color: #f9f9f9;
+            padding: 2rem;
+            border-radius: 10px;
+        }
+        form label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: 500;
+            color: #555;
+        }
+        form input[type="text"], form input[type="email"], form input[type="tel"], form select, form textarea {
+            width: calc(100% - 22px);
+            padding: 10px;
+            margin-bottom: 1rem;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-size: 1rem;
+        }
+        form textarea {
+            resize: vertical;
+            min-height: 100px;
+        }
+        form button {
+            background-color: #004d99;
+            color: white;
+            padding: 1rem 2rem;
+            border: none;
+            border-radius: 5px;
+            font-size: 1.1rem;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+        form button:hover {
+            background-color: #003a73;
+        }
+        /* Footer */
+        footer {
+            text-align: center;
+            padding: 2rem;
+            font-size: 0.9rem;
+            color: #777;
+            background-color: #eef1f5;
+            margin-top: 2rem;
+        }
+        footer .external-links {
+            margin-top: 1rem;
+        }
+        footer .external-links a {
+            color: #004d99;
+            text-decoration: none;
+            margin: 0 10px;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>창원 인테리어 추천 2026: 비용, 견적, 평당 가격 비교 가이드</h1>
+        <nav aria-label="메인 메뉴">
+            <ul>
+                <li><a href="#intro">인테리어 개요</a></li>
+                <li><a href="#price">창원 인테리어 비용</a></li>
+                <li><a href="#area">지역별 추천</a></li>
+                <li><a href="#firm">업체 선정 기준</a></li>
+                <li><a href="#faq">자주 묻는 질문</a></li>
+                <li><a href="#contact">견적 문의</a></li>
+            </ul>
+        </nav>
+    </header>
+
     <main>
-      <h1>Home page</h1>
+        <section id="intro">
+            <h2>창원 인테리어 트렌드 분석 및 서비스 소개</h2>
+            <p>2026년 창원 인테리어 시장은 '개인화'와 '가성비'에 초점을 맞추고 있습니다. 창원시민들은 단순히 집을 고치는 것을 넘어, 라이프스타일을 반영한 맞춤형 공간을 원합니다. 저희는 창원 전 지역(마산, 진해, 성산구, 의창구 등)의 다양한 인테리어 요구사항에 맞춰 최적의 솔루션을 제공하며, 합리적인 창원 인테리어 비용 견적을 제시합니다. 창원 인테리어 추천 업체를 찾으신다면, 단순히 싼곳이나 저렴한곳을 찾는 것보다, 투명한 견적과 높은 품질을 보장하는 곳을 선택해야 합니다. 창원 인테리어 순위와 내돈내산 후기를 바탕으로 신뢰할 수 있는 정보를 제공합니다.</p>
+            <h3>창원 인테리어, 왜 신중해야 할까요?</h3>
+            <p>인테리어는 한번 진행하면 최소 5~10년 이상 사용해야 하는 중요한 투자입니다. 창원 아파트 리모델링을 계획할 때, 창원 인테리어 업체 순위를 무작정 따르기보다는, 업체의 전문성과 시공 경험, 그리고 사후 관리(A/S) 시스템을 꼼꼼히 확인해야 합니다. 특히 창원 지역의 노후 아파트나 주택 리모델링 시에는 철거 비용, 설비 보수 비용 등 예상치 못한 추가 비용이 발생할 수 있으므로, 초기 견적 단계부터 명확한 소통이 중요합니다.</p>
+
+            <div class="keyword-tags" aria-label="연관 키워드">
+                <a href="#price">창원 인테리어 가격</a>
+                <a href="#area">마산 아파트 리모델링</a>
+                <a href="#firm">창원 인테리어 업체 순위</a>
+                <a href="#faq">인테리어 견적 차이점</a>
+                <a href="#price">창원 평당 비용</a>
+                <a href="#firm">내돈내산 인테리어 후기</a>
+                <a href="#area">진해 인테리어</a>
+                <a href="#faq">인테리어 장단점</a>
+                <a href="#contact">무료 견적 문의</a>
+            </div>
+        </section>
+
+        <section id="price">
+            <h2>창원 인테리어 비용 및 견적 분석 (2026년 기준)</h2>
+            <p>창원 인테리어 비용은 '평당 가격'으로 많이 이야기됩니다. 하지만 평당 비용은 참고 자료일 뿐, 실제 견적은 자재의 종류, 시공 범위, 업체의 인건비, 작업 난이도에 따라 크게 달라집니다. 저희는 2026년 창원 인테리어 시장의 평균 견적을 바탕으로 현실적인 창원 인테리어 가격을 분석해 드립니다.</p>
+
+            <h3>1. 창원 인테리어 평당 평균 가격 (예상)</h3>
+            <p>아래 표는 창원 지역에서 일반적인 30평대 아파트 리모델링을 기준으로 한 예상 평당 비용입니다. 이는 참고용이며, 정확한 창원 인테리어 견적은 현장 실측을 통해 받아보시는 것이 좋습니다. 창원 인테리어 싼곳을 찾으신다면 '베이직 패키지'를 참고하되, 저렴한곳일수록 추가 비용 발생 여부를 반드시 확인해야 합니다.</p>
+            <table>
+                <thead>
+                    <tr>
+                        <th>패키지 유형</th>
+                        <th>평당 예상 금액</th>
+                        <th>주요 특징 및 범위</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>베이직 패키지 (부분 시공)</td>
+                        <td>50만원 ~ 80만원대</td>
+                        <td>도배, 장판/마루 교체 등 최소한의 마감재 교체. 주방/욕실 제외. (창원 인테리어 저렴한곳)</td>
+                    </tr>
+                    <tr>
+                        <td>스탠다드 패키지 (전체 리모델링)</td>
+                        <td>100만원 ~ 150만원대</td>
+                        <td>거실, 주방, 욕실 2개 포함 전체 시공. 기본 자재 사용. (창원 평균 인테리어 비용)</td>
+                    </tr>
+                    <tr>
+                        <td>프리미엄 패키지 (고급 자재 시공)</td>
+                        <td>180만원 ~ 250만원대 이상</td>
+                        <td>고급 수입 자재, 맞춤 제작 가구, 시스템 에어컨, 스마트 홈 시스템 등 포함. (창원 고급 인테리어)</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <h3>2. 창원 인테리어 비용에 영향을 미치는 요소들</h3>
+            <ul>
+                <li><strong>면적(평수) 및 구조:</strong> 20평대, 30평대, 40평대 등 평수가 커질수록 총 비용은 증가하지만, 평당 단가는 낮아질 수 있습니다. 주택 인테리어는 아파트보다 철거 및 설비 비용이 더 발생합니다.</li>
+                <li><strong>자재 등급:</strong> 벽지, 마루, 타일, 주방 가구(싱크대) 등 마감재의 브랜드와 등급에 따라 비용 차이가 가장 크게 납니다.</li>
+                <li><strong>시공 범위:</strong> 전체 철거 후 재시공인지, 부분 시공인지에 따라 견적 금액이 달라집니다. 특히 창호(샤시) 교체는 단열 효과가 크지만 비용이 높습니다.</li>
+                <li><strong>업체 선정:</strong> 창원 인테리어 업체의 규모와 브랜드 파워에 따라 인건비와 관리비가 다르게 책정됩니다.</li>
+                <li><strong>지역별 특성:</strong> 창원시 내에서도 마산합포구, 진해구 등 외곽 지역은 창원 시내 지역(성산구, 의창구)에 비해 업체 수가 적어 경쟁이 덜할 수 있습니다.</li>
+            </ul>
+            <p class="callout"><strong>창원 인테리어 견적 팁:</strong> 창원 인테리어 비용을 줄이려면 불필요한 공정을 제외하고, 자재 선택의 폭을 넓혀보세요. 여러 업체에 창원 인테리어 견적을 비교하는 것이 필수입니다. 30평대 아파트 리모델링 시, 샷시 교체 여부만으로도 전체 비용의 20~30%가 달라질 수 있습니다.</p>
+        </section>
+
+        <section id="area">
+            <h2>창원 지역별 인테리어 추천 및 특징</h2>
+            <p>창원시는 크게 의창구, 성산구, 마산합포구, 마산회원구, 진해구 등 5개 구역으로 나뉩니다. 각 지역은 주거 형태와 아파트 연식에 따라 인테리어 수요와 특징이 다릅니다. 창원 인테리어 추천은 각 지역의 특성을 고려하여 이루어져야 합니다.</p>
+
+            <h3>1. 창원시 성산구 (용호동, 상남동, 사파동) 인테리어</h3>
+            <p>창원 성산구는 창원의 중심지로, 비교적 오래된 대단위 아파트 단지가 많습니다. 성산구 인테리어의 주요 수요는 30평대 아파트의 전체 리모델링이며, 특히 90년대 후반~2000년대 초반에 지어진 아파트들의 샷시 교체, 욕실 리모델링, 주방 확장 공사 문의가 많습니다. 용호동 인테리어는 고급 자재를 선호하는 경향이 있으며, 상남동 인테리어는 실속형 인테리어와 부분 리모델링 수요가 높습니다. [창원시청 공식 사이트 참조]</p>
+
+            <h3>2. 창원시 마산 지역 (마산합포구, 마산회원구) 인테리어</h3>
+            <p>마산합포구 인테리어와 마산회원구 인테리어는 창원시에서 가장 많은 리모델링 수요가 집중되는 지역 중 하나입니다. 오래된 주택과 아파트가 많아 누수 방지, 단열 보강 등 기초 공사에 대한 관심이 높습니다. 창동 인테리어, 양덕동 인테리어 등 마산의 구도심 지역은 주택 리모델링 비율도 높습니다. 마산 인테리어 싼곳을 찾는 분들이 많지만, 노후 주택은 반드시 전문 업체를 통해 꼼꼼한 견적을 받아야 안전합니다.</p>
+
+            <h3>3. 창원시 진해구 (장천동, 풍호동, 자은동) 인테리어</h3>
+            <p>진해구 인테리어는 비교적 최근에 개발된 신도시 아파트 단지가 많아, 마산이나 성산구에 비해 리모델링 수요가 적습니다. 하지만 자은동이나 장천동의 신축 아파트 입주 시에는 "입주 후 인테리어" 수요가 꾸준합니다. 진해 인테리어의 특징은 좁은 공간을 효율적으로 활용하는 수납 솔루션과, 아이를 위한 친환경 자재를 선호하는 경향이 강합니다. [나무위키: 진해구 아파트 정보]</p>
+
+            <h3>4. 창원시 의창구 (북면, 동읍) 인테리어</h3>
+            <p>창원 의창구는 창원 북면과 동읍 등 신도시 개발과 전원 주택 수요가 섞여 있습니다. 북면 인테리어는 신축 아파트 입주 시 주방 수납장 추가, 거실 인테리어 등 부분 시공 수요가 많습니다. 의창구 인테리어는 전원 주택 리모델링 수요도 있어, 단열 보강이나 층간 소음 저감에 중점을 둔 시공이 주를 이룹니다.</p>
+
+            <div class="callout"><strong>창원 인테리어 업체 순위 비교 기준:</strong> 지역별 특성을 이해하는 업체인지 확인하세요. 창원 인테리어 추천 업체는 마산 지역의 노후 아파트 단열 문제나 진해 지역의 신축 아파트 맞춤형 시공 경험이 풍부해야 합니다.</div>
+        </section>
+
+        <section id="firm">
+            <h2>창원 인테리어 업체 선정 가이드: 내돈내산 후기와 비교</h2>
+            <p>창원 인테리어 업체 순위는 인터넷 검색만으로 판단하기 어렵습니다. 싼곳만 고집하다가 추가 비용으로 골머리를 앓거나, 부실 시공으로 재시공을 하는 경우가 많습니다. 창원 인테리어 추천 업체를 제대로 선정하기 위한 팁을 알려드립니다.</p>
+
+            <h3>1. 투명한 창원 인테리어 견적서 확인</h3>
+            <p>창원 인테리어 견적을 받을 때, '일괄 견적'을 제시하는 업체는 피하는 것이 좋습니다. 세부 항목(철거, 목공, 타일, 전기, 도배 등)별로 자재 비용과 인건비를 명확하게 분리하여 제시하는 '상세 견적'을 요구해야 합니다. 창원 인테리어 비용의 투명성은 부실 시공을 예방하는 첫걸음입니다. 특히 창원 리모델링 후기에서 '추가 비용 발생' 언급이 많은 업체는 주의해야 합니다.</p>
+
+            <h3>2. 창원 인테리어 업체의 시공 경험 및 포트폴리오</h3>
+            <p>해당 업체가 창원 지역에서 얼마나 많은 시공 경험이 있는지 확인해야 합니다. 특히 내가 살고 있는 아파트 단지나 유사한 평수의 아파트 시공 경험이 있다면, 창원 인테리어 추천 1순위로 고려할 만합니다. 포트폴리오를 통해 업체의 디자인 감각과 시공 능력을 판단할 수 있습니다. [대한주택건설협회: 주택건설 통계]를 참고하여 인테리어 시장의 전반적인 현황을 파악하는 것도 좋습니다.</p>
+
+            <h3>3. A/S 및 사후 관리 시스템</h3>
+            <p>인테리어는 시공 완료 후 하자가 발생할 수 있습니다. 1~2년 동안 무상 A/S를 보장하는지, 창원 인테리어 업체가 신뢰성 있는 보증서를 제공하는지 확인해야 합니다. A/S 기간 동안 연락 두절되는 싼곳을 피하려면, 창원 인테리어 내돈내산 후기를 꼼꼼히 찾아보고, 가입한 조합이나 협회의 보증 여부를 확인하세요.</p>
+
+            <h3>4. 창원 인테리어 업체 비교 (장점 vs 단점)</h3>
+            <table>
+                <thead>
+                    <tr>
+                        <th>구분</th>
+                        <th>장점</th>
+                        <th>단점</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>종합 인테리어 업체 (대형/중형)</td>
+                        <td>전체 공정 일괄 관리, 높은 디자인 완성도, 체계적인 A/S 보장</td>
+                        <td>비용이 높을 수 있음, 유연성 부족, 개인 취향 반영 어려움</td>
+                    </tr>
+                    <tr>
+                        <td>개인 인테리어 전문가 (소규모)</td>
+                        <td>창원 인테리어 비용 절감 가능, 높은 유연성, 세부 협의 용이</td>
+                        <td>A/S 보장이 불확실할 수 있음, 견적의 투명성이 떨어질 수 있음</td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+
+        <section id="faq">
+            <h2>자주 묻는 질문 (FAQ)</h2>
+            <p>창원 인테리어 진행 시 고객들이 가장 궁금해하는 질문들을 모아 답변해 드립니다. 창원 인테리어 견적 비교와 관련된 궁금증을 해소해 드립니다.</p>
+            <dl>
+                <dt tabindex="0" aria-expanded="false">Q1. 창원 인테리어, 언제부터 준비해야 하나요?</dt>
+                <dd>A. 창원 인테리어는 최소 1~2개월 전부터 준비하는 것이 좋습니다. 특히 원하는 시기에 시공을 하려면, 인기 있는 창원 인테리어 업체는 미리 예약이 차있기 때문에 넉넉하게 계획을 잡는 것이 중요합니다. 시공 기간은 20평대 아파트는 2~3주, 30평대는 3~4주 정도 소요됩니다. [소비자 보호원 리모델링 가이드라인 참고]</dd>
+                <dt tabindex="0" aria-expanded="false">Q2. 창원 인테리어 업체 싼곳은 어떻게 찾나요? 저렴한곳이 좋은가요?</dt>
+                <dd>A. 창원 인테리어 싼곳을 찾는 것은 당연하지만, 지나치게 저렴한곳은 피해야 합니다. 자재 등급을 낮추거나 인건비를 절감하여 시공 품질이 떨어질 수 있습니다. 싼곳을 찾으려면 여러 업체에 견적을 받아 '평균 견적'을 확인한 후, 그 평균값보다 10~20% 내외로 저렴한 업체를 선택하는 것이 합리적입니다. '내돈내산 후기'를 통해 업체별 장단점을 비교하는 것이 중요합니다.</dd>
+                <dt tabindex="0" aria-expanded="false">Q3. 창원 아파트 리모델링 시 주의사항(장점과 단점)은 무엇인가요?</dt>
+                <dd>A. <strong>장점:</strong> 노후된 아파트의 단열, 누수, 층간 소음 문제를 해결하고 새로운 공간으로 탈바꿈할 수 있습니다. <strong>단점:</strong> 층간 소음, 엘리베이터 사용, 공사 진행 시간에 대한 입주민 동의를 반드시 받아야 하며, 특히 창원 마산 지역의 오래된 아파트는 관리 규약을 확인해야 합니다. [공동주택관리법 시행규칙 참고]</dd>
+                <dt tabindex="0" aria-expanded="false">Q4. 창원 인테리어 업체 선정 시, 무엇을 가장 우선적으로 고려해야 하나요?</dt>
+                <dd>A. 첫째, 업체의 시공 전문성입니다. 둘째, 견적의 투명성입니다. 셋째, A/S 보장 여부입니다. 창원 인테리어 추천 업체를 찾을 때, 이 세 가지를 모두 만족하는 곳을 선택해야 성공적인 리모델링을 할 수 있습니다.</dd>
+            </dl>
+        </section>
+
+        <section id="contact">
+            <h2>창원 인테리어 무료 견적 문의 및 상담</h2>
+            <p>창원 인테리어 비용은 복잡하며, 고객님의 니즈에 따라 크게 달라집니다. 창원시 성산구, 의창구, 마산합포구, 마산회원구, 진해구 등 어떤 지역이든 전문 상담을 통해 맞춤형 인테리어 견적을 제공해 드립니다. 창원 아파트 리모델링, 주택 인테리어 등 궁금한 점이 있다면 언제든지 문의해주세요.</p>
+
+            <form action="#" method="post">
+                <label for="name">이름:</label>
+                <input type="text" id="name" name="name" placeholder="이름을 입력하세요" required>
+
+                <label for="tel">연락처:</label>
+                <input type="tel" id="tel" name="tel" placeholder="010-xxxx-xxxx" required>
+
+                <label for="email">이메일:</label>
+                <input type="email" id="email" name="email" placeholder="email@example.com">
+
+                <label for="area">희망 지역 (창원시 구역 선택):</label>
+                <select id="area" name="area" required>
+                    <option value="">지역을 선택하세요</option>
+                    <option value="성산구">성산구</option>
+                    <option value="의창구">의창구</option>
+                    <option value="마산합포구">마산합포구</option>
+                    <option value="마산회원구">마산회원구</option>
+                    <option value="진해구">진해구</option>
+                </select>
+
+                <label for="type">시공 유형:</label>
+                <select id="type" name="type" required>
+                    <option value="">시공 유형 선택</option>
+                    <option value="전체 리모델링">전체 리모델링</option>
+                    <option value="부분 인테리어">부분 인테리어</option>
+                    <option value="주택 리모델링">주택 리모델링</option>
+                </select>
+
+                <label for="message">문의 내용 (평수, 희망 사항 등):</label>
+                <textarea id="message" name="message" placeholder="자세한 문의 내용을 남겨주시면 정확한 견적에 도움이 됩니다. (예: 32평 아파트, 주방 및 욕실 리모델링 희망)" required></textarea>
+
+                <button type="submit">견적 문의 신청</button>
+            </form>
+            <p style="text-align: center; margin-top: 1rem;">전화 문의: <a href="tel:055-1234-5678" style="font-weight: bold; color: #004d99; text-decoration: none;">055-1234-5678</a></p>
+        </section>
     </main>
-  </body>
-</html>
+
+    <script>
+        // FAQ 아코디언 기능 (접기/펼치기)
+        document.querySelectorAll('dl dt').forEach((dt) => {
+            dt.addEventListener('click', () => {
+                const isActive = dt.classList.toggle('active');
+                dt.setAttribute('aria-expanded', isActive);
+            });
+            dt.addEventListener('keydown', (e) => {
+                if (e.key === 'Enter' || e.key === ' ') {
+                    e.preventDefault();
+                    dt.click();
+                }
+            });
+        });
+    </script>
+
+  
